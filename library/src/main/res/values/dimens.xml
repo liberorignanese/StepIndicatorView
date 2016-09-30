@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="stepviewindicator_iconsize">24dp</dimen>
+    <dimen name="stepviewindicator_fontsize">12sp</dimen>
+    <dimen name="stepviewindicator_stepdistance">8dp</dimen>
+    <dimen name="stepviewindicator_stepmargin">8dp</dimen>
+</resources>

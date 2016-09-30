@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/icon_container_step_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/linestart_step_layout"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/stepviewindicator_iconsize"
+            android:src="@drawable/line_completed_horizontal"
+            android:layerType="software" />
+
+        <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/icon_step_layout"
+            android:layout_width="@dimen/stepviewindicator_iconsize"
+            android:layout_height="@dimen/stepviewindicator_iconsize"
+            android:src="@drawable/icon_completed"/>
+
+        <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/lineend_step_layout"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="@dimen/stepviewindicator_iconsize"
+            android:src="@drawable/line_uncompleted_horizontal"
+            android:layerType="software" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="@dimen/stepviewindicator_stepmargin"
+        android:layout_marginBottom="@dimen/stepviewindicator_stepmargin"
+        android:layout_marginEnd="@dimen/stepviewindicator_stepdistance"
+        android:layout_marginStart="@dimen/stepviewindicator_stepdistance"
+        android:id="@+id/text_step_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/stepviewindicator_fontsize"
+        android:textColor="@color/stepviewindicator_maincolor"
+        android:text="STEP EXAMPLE"
+        />
+
+</LinearLayout>
