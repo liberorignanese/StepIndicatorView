@@ -12,6 +12,9 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    lintOptions {
+        abortOnError false
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -27,6 +30,6 @@ dependencies {
     })
     compile 'com.android.support:design:24.2.1'
 
-    compile project(':library')
+    compile project(':stepindicatorview')
     testCompile 'junit:junit:4.12'
 }

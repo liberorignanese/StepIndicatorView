@@ -5,7 +5,7 @@ ext {
     bintrayName = 'maven'
 
     publishedGroupId = 'com.liberorignanese.android'
-    libraryName = 'StepIndicatorView'
+    libraryName = 'stepindicatorview'
     artifact = 'stepindicatorview'
 
     libraryDescription = 'A library for creating a view that shows steps on Android'
@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/liberorignanese/StepIndicatorView'
     gitUrl = 'https://github.com/liberorignanese/StepIndicatorView.git'
 
-    libraryVersion = '0.9.9'
+    libraryVersion = '0.9.13'
 
     developerId = 'libero.rignanese.com'
     developerName = 'Libero Rignanese'
@@ -33,6 +33,9 @@ android {
         targetSdkVersion 24
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        abortOnError false
     }
     buildTypes {
         release {

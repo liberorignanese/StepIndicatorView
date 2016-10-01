@@ -1,9 +1,9 @@
 package com.liberorignanese.android.stepindicatorview;
 
 import android.graphics.Typeface;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
@@ -56,14 +56,14 @@ public class Step {
 
     private int alpha = 150;
 
-    public void setUpView(View stepView, Step previous, Step next, @LinearLayoutCompat.OrientationMode int orientation) {
+    public void setUpView(View stepView, Step previous, Step next, int orientation) {
         ImageView iconView = (ImageView) stepView.findViewById(R.id.icon_step_layout);
         ImageView lineStartView = (ImageView) stepView.findViewById(R.id.linestart_step_layout);
         ImageView lineEndView = (ImageView) stepView.findViewById(R.id.lineend_step_layout);
         TextView textView = (TextView) stepView.findViewById(R.id.text_step_layout);
 
-        int line_completed = orientation == LinearLayoutCompat.HORIZONTAL ? R.drawable.line_completed_horizontal : R.drawable.line_completed_vertical;
-        int line_uncompleted = orientation == LinearLayoutCompat.HORIZONTAL ? R.drawable.line_uncompleted_horizontal: R.drawable.line_uncompleted_vertical;
+        int line_completed = orientation == LinearLayout.HORIZONTAL ? R.drawable.line_completed_horizontal : R.drawable.line_completed_vertical;
+        int line_uncompleted = orientation == LinearLayout.HORIZONTAL ? R.drawable.line_uncompleted_horizontal: R.drawable.line_uncompleted_vertical;
         int icon_completed = R.drawable.icon_check;
         int icon_uncompleted = R.drawable.icon_uncompleted;
 
