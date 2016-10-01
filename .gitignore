@@ -45,3 +45,6 @@ Thumbs.db
 build/
 */build/
 captures/
+
+
+maven_push.gradle
