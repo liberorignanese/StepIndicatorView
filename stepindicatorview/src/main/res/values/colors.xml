@@ -2,4 +2,7 @@
 <resources>
     <color name="stepviewindicator_maincolor">#000</color>
     <color name="stepviewindicator_checkcolor">#FFF</color>
+
+    <color name="stepviewindicator_maincolor_secondary">#FFF</color>
+    <color name="stepviewindicator_checkcolor_secondary">#000</color>
 </resources>

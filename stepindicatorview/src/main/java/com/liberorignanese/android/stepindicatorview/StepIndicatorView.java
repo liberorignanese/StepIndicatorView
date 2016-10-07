@@ -18,12 +18,22 @@ import java.util.List;
 public class StepIndicatorView extends LinearLayout {
 
     private List<Step> steps;
+    private boolean useSecondaryStepColor = false;
 
     private void initSteps(){
         if(steps == null){
             steps = new ArrayList<>();
         }
     }
+
+    public void setUseSecondaryStepColor(boolean useSecondaryStepColor){
+        this.useSecondaryStepColor = useSecondaryStepColor;
+    }
+
+    public boolean getUseSecondaryStepColor(){
+        return this.useSecondaryStepColor;
+    }
+
 
     public void addStep(Step step){
         initSteps();
@@ -60,7 +70,7 @@ public class StepIndicatorView extends LinearLayout {
                 Step step = steps.get(i);
                 int nextIndex = (i + 1);
                 next = (nextIndex < stepsSize) ? steps.get(nextIndex) : null;
-                step.setUpView(stepView, previous, next, getOrientation());
+                step.setUpView(stepView, previous, next, getOrientation(), useSecondaryStepColor);
                 previous = step;
                 addView(stepView);
             }

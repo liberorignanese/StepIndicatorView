@@ -48,7 +48,6 @@
             android:gravity="center_vertical"
             android:textSize="@dimen/stepviewindicator_fontsize"
             android:maxLines="1"
-            android:textColor="@color/stepviewindicator_maincolor"
             android:text="STEP EXAMPLE STEP EXAMPLE STEP EXAMPLE STEP EXAMPLE"
             />
 

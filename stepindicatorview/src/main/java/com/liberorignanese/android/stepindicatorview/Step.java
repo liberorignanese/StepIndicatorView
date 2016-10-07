@@ -1,6 +1,7 @@
 package com.liberorignanese.android.stepindicatorview;
 
 import android.graphics.Typeface;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -56,16 +57,26 @@ public class Step {
 
     private int alpha = 150;
 
+    @Deprecated
     public void setUpView(View stepView, Step previous, Step next, int orientation) {
+        setUpView(stepView, previous, next, orientation, false);
+    }
+
+    public void setUpView(View stepView, Step previous, Step next, int orientation, boolean useSecondaryStepColor) {
         ImageView iconView = (ImageView) stepView.findViewById(R.id.icon_step_layout);
         ImageView lineStartView = (ImageView) stepView.findViewById(R.id.linestart_step_layout);
         ImageView lineEndView = (ImageView) stepView.findViewById(R.id.lineend_step_layout);
         TextView textView = (TextView) stepView.findViewById(R.id.text_step_layout);
 
-        int line_completed = orientation == LinearLayout.HORIZONTAL ? R.drawable.line_completed_horizontal : R.drawable.line_completed_vertical;
-        int line_uncompleted = orientation == LinearLayout.HORIZONTAL ? R.drawable.line_uncompleted_horizontal: R.drawable.line_uncompleted_vertical;
-        int icon_completed = R.drawable.icon_check;
-        int icon_uncompleted = R.drawable.icon_uncompleted;
+        int line_completed = orientation == LinearLayout.HORIZONTAL ? (useSecondaryStepColor ? R.drawable.line_completed_horizontal_secondary : R.drawable.line_completed_horizontal) : (useSecondaryStepColor ? R.drawable.line_completed_vertical_secondary : R.drawable.line_completed_vertical);
+        int line_uncompleted = orientation == LinearLayout.HORIZONTAL ? (useSecondaryStepColor ? R.drawable.line_uncompleted_horizontal_secondary : R.drawable.line_uncompleted_horizontal) : (useSecondaryStepColor ? R.drawable.line_uncompleted_vertical_secondary : R.drawable.line_uncompleted_vertical);
+        int icon_completed = useSecondaryStepColor ? R.drawable.icon_check_secondary : R.drawable.icon_check;
+        int icon_uncompleted = useSecondaryStepColor ? R.drawable.icon_uncompleted_secondary : R.drawable.icon_uncompleted;
+
+        if(useSecondaryStepColor){
+
+        }
+
 
         if(previous == null){
             lineStartView.setVisibility(View.INVISIBLE);
@@ -108,6 +119,14 @@ public class Step {
                 iconView.setImageAlpha(alpha);
             }
         }
+
+        if(useSecondaryStepColor){
+            textView.setTextColor(ContextCompat.getColor(stepView.getContext(), R.color.stepviewindicator_maincolor_secondary));
+        }else{
+            textView.setTextColor(ContextCompat.getColor(stepView.getContext(), R.color.stepviewindicator_maincolor));
+        }
+
+
         stepView.setOnClickListener(onClickListener);
 
     }

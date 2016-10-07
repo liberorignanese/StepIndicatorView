@@ -6,4 +6,6 @@
 
     <color name="stepviewindicator_maincolor">@color/colorAccent</color>
 
+    <color name="stepviewindicator_maincolor_secondary">@color/colorPrimary</color>
+    <color name="stepviewindicator_checkcolor_secondary">@color/colorAccent</color>
 </resources>

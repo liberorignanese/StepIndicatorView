@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mStepView = (StepIndicatorView) findViewById(R.id.step_view);
+        mStepView.setUseSecondaryStepColor(true);
         final Step step1 = new Step("Eccolo 1", true, false);
         final Step step2 = new Step("Eccolo 2", false, false);
         final Step step3 = new Step("Eccolo 3", false, false);
