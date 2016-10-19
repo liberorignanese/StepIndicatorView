@@ -34,10 +34,18 @@ public class StepIndicatorView extends LinearLayout {
         return this.useSecondaryStepColor;
     }
 
-
     public void addStep(Step step){
         initSteps();
         steps.add(step);
+    }
+
+    public boolean removeStep(Step step){
+        return steps.remove(step);
+    }
+
+    public boolean hasStep(Step step){
+        initSteps();
+        return steps.contains(step);
     }
 
     public StepIndicatorView(Context context) {

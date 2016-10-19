@@ -71,7 +71,8 @@ public class Step {
         int line_completed = orientation == LinearLayout.HORIZONTAL ? (useSecondaryStepColor ? R.drawable.line_completed_horizontal_secondary : R.drawable.line_completed_horizontal) : (useSecondaryStepColor ? R.drawable.line_completed_vertical_secondary : R.drawable.line_completed_vertical);
         int line_uncompleted = orientation == LinearLayout.HORIZONTAL ? (useSecondaryStepColor ? R.drawable.line_uncompleted_horizontal_secondary : R.drawable.line_uncompleted_horizontal) : (useSecondaryStepColor ? R.drawable.line_uncompleted_vertical_secondary : R.drawable.line_uncompleted_vertical);
         int icon_completed = useSecondaryStepColor ? R.drawable.icon_check_secondary : R.drawable.icon_check;
-        int icon_uncompleted = useSecondaryStepColor ? R.drawable.icon_uncompleted_secondary : R.drawable.icon_uncompleted;
+        int icon_uncompleted = useSecondaryStepColor ? R.drawable.icon_circle_secondary : R.drawable.icon_circle;
+        int icon_completed_current = useSecondaryStepColor ? R.drawable.icon_check_secondary_current : R.drawable.icon_check_current;
 
         if(useSecondaryStepColor){
 
@@ -109,7 +110,7 @@ public class Step {
             textView.setTypeface(null, Typeface.NORMAL);
         }
         if(isCompleted()){
-            iconView.setImageResource(icon_completed);
+            iconView.setImageResource(current ? icon_completed_current : icon_completed);
             iconView.setImageAlpha(255);
         }else{
             iconView.setImageResource(icon_uncompleted);
@@ -119,14 +120,11 @@ public class Step {
                 iconView.setImageAlpha(alpha);
             }
         }
-
         if(useSecondaryStepColor){
             textView.setTextColor(ContextCompat.getColor(stepView.getContext(), R.color.stepviewindicator_maincolor_secondary));
         }else{
             textView.setTextColor(ContextCompat.getColor(stepView.getContext(), R.color.stepviewindicator_maincolor));
         }
-
-
         stepView.setOnClickListener(onClickListener);
 
     }
