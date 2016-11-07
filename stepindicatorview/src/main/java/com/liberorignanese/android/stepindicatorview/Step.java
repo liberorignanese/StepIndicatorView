@@ -1,6 +1,8 @@
 package com.liberorignanese.android.stepindicatorview;
 
+import android.graphics.Color;
 import android.graphics.Typeface;
+import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
@@ -73,10 +75,16 @@ public class Step {
         int icon_completed = useSecondaryStepColor ? R.drawable.icon_check_secondary : R.drawable.icon_check;
         int icon_uncompleted = useSecondaryStepColor ? R.drawable.icon_circle_secondary : R.drawable.icon_circle;
         int icon_completed_current = useSecondaryStepColor ? R.drawable.icon_check_secondary_current : R.drawable.icon_check_current;
+        int step_backgroundcolor = Color.TRANSPARENT;
+        int step_textcolor = useSecondaryStepColor ? R.color.stepviewindicator_maincolor_secondary : R.color.stepviewindicator_maincolor;
+        int step_iscurrent_backgroundcolor = useSecondaryStepColor ? R.color.stepviewindicator_maincolor_secondary : R.color.stepviewindicator_maincolor;
+        int step_iscurrent_textcolor = useSecondaryStepColor ? R.color.stepviewindicator_checkcolor_secondary : R.color.stepviewindicator_checkcolor;
 
+/*
         if(useSecondaryStepColor){
 
         }
+*/
 
 
         if(previous == null){
@@ -104,11 +112,6 @@ public class Step {
             }
         }
         textView.setText(getText());
-        if(isCurrent()){
-            textView.setTypeface(null, Typeface.BOLD);
-        }else{
-            textView.setTypeface(null, Typeface.NORMAL);
-        }
         if(isCompleted()){
             iconView.setImageResource(current ? icon_completed_current : icon_completed);
             iconView.setImageAlpha(255);
@@ -120,11 +123,23 @@ public class Step {
                 iconView.setImageAlpha(alpha);
             }
         }
+
+        if(isCurrent()){
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setTextColor(ContextCompat.getColor(stepView.getContext(), step_iscurrent_textcolor));
+            textView.setBackgroundColor(ContextCompat.getColor(stepView.getContext(), step_iscurrent_backgroundcolor));
+        }else{
+            textView.setTypeface(null, Typeface.NORMAL);
+            textView.setTextColor(ContextCompat.getColor(stepView.getContext(), step_textcolor));
+            textView.setBackgroundColor(step_backgroundcolor);
+        }
+/*
         if(useSecondaryStepColor){
             textView.setTextColor(ContextCompat.getColor(stepView.getContext(), R.color.stepviewindicator_maincolor_secondary));
         }else{
             textView.setTextColor(ContextCompat.getColor(stepView.getContext(), R.color.stepviewindicator_maincolor));
         }
+*/
         stepView.setOnClickListener(onClickListener);
 
     }
